@@ -1,0 +1,28 @@
+{% extends "courses/educa_base.html" %}
+{% load staticfiles %}
+{% block title %}我的课程{% endblock %}
+
+{% block page_content %}
+    <h1>我的课程</h1>
+
+    <div class="module">
+        {% for course in object_list %}
+            <div class="course-info">
+                <h3>{{ course.title }}</h3>
+                <p>
+                    <a href="{% url "courses:course_edit" course.id %}">编辑</a>
+                    <a href="{% url "courses:course_delete" course.id %}">删除</a>
+                    <a href="{% url "courses:course_module_update" course.id %}">编辑模块</a>
+                    {% if course.modules.count > 0 %}
+                        <a href="{% url "courses:module_content_list" course.modules.first.id %}">管理内容</a>
+                    {% endif %}
+                </p>
+            </div>
+        {% empty %}
+            <p>You haven't created any courses yet.</p>
+        {% endfor %}
+            <p>
+                <a href="{% url "courses:course_create" %}" class="button">创建一个新的课程</a>
+            </p>
+    </div>
+{% endblock %}

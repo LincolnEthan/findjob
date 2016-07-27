@@ -1,0 +1,19 @@
+{% extends "courses/educa_base.html" %}
+{% load bootstrap3 %}
+{% block title %}
+    Edit "{{ course.title }}"
+{% endblock %}
+
+{% block page_content %}
+    <h1>编辑 "{{ course.title }}"</h1>
+    <div class="module">
+        <h2>课程模块</h2>
+
+        <form action="" method="post">
+            {% bootstrap_formset formset %}
+            {{ formset.management_form   }}
+            {% csrf_token %}
+            <input type="submit" class="button" value="保存">
+        </form>
+    </div>
+{% endblock %}

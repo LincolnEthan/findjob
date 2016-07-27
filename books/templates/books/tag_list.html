@@ -1,0 +1,27 @@
+{% extends "books/books_base.html" %}
+{% load staticfiles %}
+{% block page_content %}
+<main id="content" class="content" role="main">
+    <div class="main-inner">
+
+        <div id="posts" class="posts-expand">
+
+
+            <div class="tag-cloud">
+
+                <div class="tag-cloud-tags">
+
+                    {% for tag in tag_list %}
+                    <a href="{% url "books:tag" tag.id %}" style="font-size:{{tag.font_size}}px; color:{{tag.color}}">{{tag.title}}</a>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</main>
+{% endblock %}

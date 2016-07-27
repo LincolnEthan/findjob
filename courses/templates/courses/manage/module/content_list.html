@@ -1,0 +1,106 @@
+{% extends "courses/educa_base.html" %}
+{% load course %}
+
+{% block title %}
+    Module {{ module.order|add:1 }}: {{ module.title }}
+{% endblock %}
+
+{% block page_content %}
+{% with course=module.course %}
+    <h1>课程 "{{ course.title }}"</h1>
+    <div class="contents">
+        <h3>模块</h3>
+        <ul id="modules">
+        {% for m in course.modules.all %}
+            <li data-id="{{ m.id }}" {% if m == module %}class="selected"{% endif %}>
+                <a href="{% url "courses:module_content_list" m.id %}">
+                    <span>
+                        模块 <span class="order">{{ m.order|add:1 }}</span>
+                    </span>
+                    <br>
+                    {{ m.title }}
+                </a>
+            </li>
+        {% empty %}
+            <li>还没有模块.</li>
+        {% endfor %}
+        </ul>
+        <p><a href="{% url "courses:course_module_update" course.id %}">编辑模块</a></p>
+    </div>
+    <div class="module">
+        <h2>模块 {{ module.order|add:1 }}: {{ module.title }}</h2>
+        <h3>模块内容:</h3>
+
+        <div id="module-contents">
+            {% for content in module.contents.all %}
+            <div data-id="{{ content.id }}">
+                {% with item=content.item %}
+                    <p>{{ item }} ({{ item|model_name }})</p>
+                    <a href="{% url "courses:module_content_update" module.id item|model_name item.id %}">编辑</a>
+                    <form action="{% url "courses:module_content_delete" content.id %}" method="post">
+                        <input type="submit" value="删除">
+                        {% csrf_token %}
+                    </form>
+                {% endwith %}
+            </div>
+            {% empty %}
+                <p>还没有内容.</p>
+            {% endfor %}
+        </div>
+        <hr>
+        <h3>添加新内容:</h3>
+        <ul class="content-types">
+            <li><a href="{% url "courses:module_content_create" module.id "text" %}">文本</a></li>
+            <li><a href="{% url "courses:module_content_create" module.id "image" %}">图片</a></li>
+            <li><a href="{% url "courses:module_content_create" module.id "video" %}">视频</a></li>
+            <li><a href="{% url "courses:module_content_create" module.id "file" %}">文件</a></li>
+        </ul>
+    </div>
+{% endwith %}
+{% endblock %}
+{% block domready %}
+
+    $('#modules').sortable({
+        stop: function(event, ui) {
+
+            modules_order = {};
+            $('#modules').children().each(function(){
+                // update the order field
+                $(this).find('.order').text($(this).index() + 1);
+                // associate the module's id with its order
+                modules_order[$(this).data('id')] = $(this).index();
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: '{% url "courses:module_order" %}',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(modules_order),
+            });
+
+        }
+    });
+
+    $('#module-contents').sortable({
+        stop: function(event, ui) {
+
+            contents_order = {};
+            $('#module-contents').children().each(function(){
+                // associate the module's id with its order
+                contents_order[$(this).data('id')] = $(this).index();
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: '{% url "courses:content_order" %}',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(contents_order),
+            });
+
+        }
+    });
+{% endblock %}
+
+

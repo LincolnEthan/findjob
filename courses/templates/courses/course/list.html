@@ -1,0 +1,47 @@
+{% extends "courses/educa_base.html" %}
+
+{% block title %}
+    {% if subject %}
+        {{ subject.title }} courses
+    {% else %}
+        All courses
+    {% endif %}
+{% endblock %}
+
+{% block page_content %}
+    <h1>
+        {% if subject %}
+            {{ subject.title }}课程
+        {% else %}
+           全部课程
+        {% endif %}
+    </h1>
+    <div class="contents">
+        <h3>科目</h3>
+        <ul id="modules">
+            <li {% if not subject %}class="selected"{% endif %}>
+                <a href="{% url "courses:course_list" %}">全部</a>
+            </li>
+            {% for s in subjects %}
+                <li {% if subject == s %}class="selected"{% endif %}>
+                    <a href="{% url "courses:course_list_subject" s.slug %}">
+                        {{ s.title }}
+                        <br><span>有{{ s.total_courses }} 课程</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="module">
+        {% for course in courses %}
+            {% with subject=course.subject %}
+                <h3><a href="{% url "courses:course_detail"  course.slug %}">{{ course.title }}</a></h3>
+                <p>
+                    <a href="{% url "courses:course_list_subject" subject.slug %}">{{ subject }}</a>.
+                    {{ course.total_modules }} 模块
+                    
+                </p>
+            {% endwith %}
+        {% endfor %}
+    </div>
+{% endblock %}

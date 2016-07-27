@@ -1,0 +1,15 @@
+{% extends "courses/educa_base.html" %}
+
+{% block title %}Delete course{% endblock %}
+
+{% block page_content %}
+    <h1>删除 "{{ object.title }}"</h1>
+
+    <div class="module">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>确定要删除 "{{ object }}" 吗?</p>
+            <input type="submit" class="button" value="确定">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load thumbnail %}
+  <div class="col-sm-6 col-md-3 ">
+    <div class="thumbnail">
+     <img src="{{ book.thumbnail |thumbnail_url:'thumbnail' }}" alt="" />
+      <div class="caption">
+       <h4>{{book.title}}</h4>
+       标签：
+      {% for tag in book.tags.all %}
+      <a href="{% url "books:tag" tag.id%}">{{tag}}</a>
+       {% empty %}
+          &nbsp &nbsp &nbsp
+      {% endfor %}
+      <br>
+      
+        <p><a href="{{book.file.url}}">下载</a></p>
+      </div>
+    </div>
+  </div>
+ 

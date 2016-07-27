@@ -1,0 +1,28 @@
+{% extends "courses/educa_base.html" %}
+{% load bootstrap3 %}
+{% block title %}
+    {% if object %}
+        Edit course "{{ object.title }}"
+    {% else %}
+        Create a new course
+    {% endif %}
+{% endblock %}
+
+{% block page_content %}
+    <h1>
+        {% if object %}
+            Edit course "{{ object.title }}"
+        {% else %}
+            创建一个新课程
+        {% endif %}
+    </h1>
+    <div class="module">
+        <h2>课程信息</h2>
+
+        <form action="" method="post">
+            {% bootstrap_form form %}
+            {% csrf_token %}
+            <p><input type="submit" value="保存"></p>
+        </form>
+    </div>
+{% endblock %}
