@@ -1,41 +1,11 @@
-{% extends 'bootstrap3/bootstrap3.html'%}
+{% extends 'base.html'%}
 {% load staticfiles %}
-{% block extra_head%}
-<style>
-        body {
-        padding-top: 70px;
-        padding-bottom: 20px;
-        }
-</style>
-{% endblock %}
+
 {% block content %}
 {% block navbar %}
-<nav class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{% url "index" %}">Show Me</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url "blog:home" %}">博客</a></li>
-            <li><a href="{% url "courses:course_list" %}">课程</a></li>
-            <li><a href="{% url "books:index"%}">书籍</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url "books:tag_list" %}">标签</a></li>
-          
-          </ul>
-           
-        </div><!-- /.nav-collapse -->
-      </div><!-- /.container -->
-    </nav><!-- /.navbar -->
-  {% endblock %}<!--/navbarendblock-->
+    {{ block.super }}
+{% endblock %}<!--/navbarendblock-->
+  
 <div class="container">
 <div class="wrapper">
 
@@ -45,11 +15,7 @@
                  {% block page_content %}
                  {% endblock %}<!--/pagecontentendblock -->
             </div>
-            <div class="col-md-4">
-
-                <!-- Latest Posts -->
-             
-
+            <div class="col-md-4">             
                 <!-- Categories -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -69,6 +35,11 @@
         </div>
     </div>
 </div>
-  
 </div>
 {% endblock %}<!--/contentendblock-->
+
+ {% block  navbar_right %}
+     <ul class="nav navbar-nav navbar-right">
+       <li><a href="{% url "books:tag_list" %}">标签</a></li>
+     </ul>
+{% endblock %}

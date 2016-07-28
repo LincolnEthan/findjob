@@ -11,7 +11,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='http://fonts.useso.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <script src="{% static "js/jquery.min.js"%}"></script>
 {% endblock %}
-{% block page_content %}
+{% block content %}
+{% block navbar %}
+{{ block.super }}
+{% endblock %}
 <!-- header -->
 <div class="col-sm-3 col-md-2 sidebar">
          <div class="sidebar_top">
