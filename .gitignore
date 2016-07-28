@@ -52,6 +52,13 @@ coverage.xml
 *.mo
 *.pot
 
+# Django static file
+static_root/
+media_root/
+
+#databse file
+*.sqlite3
+
 # Django stuff:
 *.log
 local_settings.py
