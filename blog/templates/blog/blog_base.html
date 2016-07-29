@@ -59,8 +59,7 @@
                 <button type="button" class="btn btn-default" id="btn-search">搜索</button>
     </form>
     <li><a href="{% url "blog:tag_list" %}">标签</a></li>
-    <li><a href="#about">归档</a></li>
-    <li><a href="#contact">关于</a></li>
+    <li><a href="{% url "blog:archives"%}">归档</a></li>
 </ul>
 {% endblock %}
 

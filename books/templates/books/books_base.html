@@ -15,23 +15,7 @@
                  {% block page_content %}
                  {% endblock %}<!--/pagecontentendblock -->
             </div>
-            <div class="col-md-4">             
-                <!-- Categories -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4>书籍分类</h4> 
-                           <ul class="list-group">
-                        {% for category in book_categories %}
-                        <li class="list-group-item"><a href="{% url "books:category" category.id category.title %}">{{category.title}}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    </div>
-                  
-                </div>
-              
-            </div>
-
+         
         </div>
     </div>
 </div>

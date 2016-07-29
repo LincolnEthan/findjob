@@ -19,7 +19,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="col-sm-3 col-md-2 sidebar">
          <div class="sidebar_top">
              <h1>付四凯</h1> 
-             <img src="{% static "images/avt.png"%}" alt=""/>
+             <img src="{% static "images/resume_photo.jpg"%}" alt=""/>
          </div>
         <div class="details">
              <h3>电话</h3>
@@ -44,12 +44,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      <div class="content" >
          <div class="details_header">
              <ul>
-                 <li><a href="index.html"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>简历</a></li>
-                 <li><a href="#"><span class="glyphicon glyphicon-print" aria-hidden="true"></span>打印简历</a></li>
-                 <li><a href="contact.html"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>发邮件</a></li>
+                 <li><a href="{% url "resume:resume" %}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>简历</a></li>        
                  <li><a class="play-icon popup-with-zoom-anim" href="#small-dialog"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>照片</a></li>
                  <div id="small-dialog" class="mfp-hide">
-                     <img src="{%static "images/g4.jpg" %}" alt=""/>
+                     <img src="{%static "images/ethan_leisure.jpg" %}" alt=""/>
                  </div>
                  <script>
                         $(document).ready(function() {
@@ -70,70 +68,91 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              </ul>
          </div>
          <div class="company">
-             <h3 class="clr1">项目经验</h3>
+             <h3 class="clr1">自我介绍</h3>
              <div class="company_details">
                  <h4>核心竞争力</h4>
-                 <h6>Django</h6>
-                 <p class="cmpny1">Nulla volutpat at est sed ultricies. In ac sem consequat, posuere nulla varius, molestie lorem. Duis quis nibh leo.
-                 Curabitur a quam eu mi convallis auctor nec id mauris. Nullam mattis turpis eu turpis tincidunt, et pellentesque leo imperdiet.
-                 Vivamus malesuada, sem laoreet dictum pulvinar, orci lectus rhoncus sapien, ut consectetur augue nibh in neque. In tincidunt sed enim et tincidunt.</p>
+                 <p class="cmpny1">我一直把耐心和方法作为我的核心竞争力，也会有意识的去培养这方面的品质。耐心代表的对一件事不厌其烦的投入时间和精力，不管遇到什么样的挫折。
+                 方法就是在提升效率方面做文章，快速阅读，时间管理，资料收集等。这指导我完成过很多转变，如何从英语很差，到有自信使用英语，如何跨校跨专业考研等等。
+                 </p>
              </div>
              <div class="company_details">
-                 <h4>Company Name <span>NOVEMBER 2007 - MAY 2015</span></h4>
-                 <h6>WEB DESIGNER</h6>
-                 <p>Nulla volutpat at est sed ultricies. In ac sem consequat, posuere nulla varius, molestie lorem. Duis quis nibh leo.
-                 Curabitur a quam eu mi convallis auctor nec id mauris. Nullam mattis turpis eu turpis tincidunt, et pellentesque leo imperdiet.
-                 Vivamus malesuada, sem laoreet dictum pulvinar, orci lectus rhoncus sapien, ut consectetur augue nibh in neque. In tincidunt sed enim et tincidunt.</p>
+                 <h4>项目经验</h4>
+                 <h5>wifi定位项目</h5>
+                 <p>项目描述：这是和咸宁市公安局合作的一个项目，主要是在全市范围安装wifi收集设备收集wifi信息，然后传回服务器进行查询。
+                   可以根据qq号，mac来查询犯罪嫌疑人在哪里活动过，有哪些号经常是伴随出现。<br>
+                   技术难点：数据量大，查询慢。<br>
+                   解决方法：将数据进行分表，采用日志性数据的处理办法，冗余数据，加快数据查询。<br>
+                   个人参与：将回传的数据进行压缩过滤，简单的统计然后写回数据库，这里使用到了Celery（消息队列）的技术，可以多台服务器对数据进行处理，实际上使用了2台服务器<br>  
+                </p>
+                <br>
+                <h5>病人信息查询系统</h5>
+                 <p>系统用途： 方便医生写论文，查询信息使用<br>
+                    项目描述：这是和天门市第一人民医院合作的一个项目。系统将医院提供的pdf文档，按照一定的规则提取出来，然后进行分类，写入数据库。方便查询。<br>
+                    个人参与：负责写一些展示界面，使用django技术。<br>
+                </p>
+                
              </div>
          </div>
          <div class="skills">
-             <h3 class="clr2">Professional skills</h3>
+             <h3 class="clr2">专业技能</h3>
              <div class="skill_info">
-             <p>Duis egestas tortor metus, vitae venenatis tortor tristique at. Pellentesque dignissim purus vitae enim blandit, sed tristique enim malesuada. Maecenas dolor erat,
-             volutpat a tellus eu, euismod iaculis urna. Nulla dui purus, viverra viverra dolor non, malesuada dictum purus.</p>
+             <p>用flask入门，然后转向django，在实践过程中，会去熟悉一些web方面的知识。比如说去了解http,html,css,javascript,bootstrap,celery和大量的django第三方app.
+                在帮老师进行的项目中，使用到过Celery。              
+              </p>
              </div>
              <div class="skill_list">
                  <div class="skill1">
-                     <h4>Software</h4>
+                     <h4>Python</h4>
                      <ul>					 
-                        <li>Photoshop</li>
-                        <li>Flash</li>
-                        <li>Dreemweeaver</li>
-                        <li>In Design</li>
+                        <li>掌握程度：熟练</li>
+                        <li>熟悉Django,Flask Web框架</li>
+                        <li>熟悉Celery</li>
+                        <li>熟悉Python标准库</li>
+                        <li>具有一定的项目能力</li>
                      </ul>
                  </div>
                  <div class="skill2">
-                     <h4>Languages</h4>
+                     <h4>语言</h4>
                      <ul>					 
-                        <li>HTML/CSS</li>
-                        <li>ActionScript</li>
-                        <li>PHP</li>
-                        <li>Ruby on Rais</li>
+                        <li>熟悉Python</li>
+                        <li>了解HTML\CSS\Javascript</li>
+                        <li>了解C</li>
+                        <li>了解java</li>
+                        
+                     </ul>
+                 </div>
+                   <div class="skill2">
+                     <h4>英语</h4>
+                     <ul>					 
+                        <li>词汇量：10000</li>
+                        <li>雅思：6.0(口语6.5 阅读7.0)</li>                     
+                        <li>英语六级</li> 
+                        
                      </ul>
                  </div>
                  <div class="clearfix"></div>
              </div>
          </div>
-         <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >免费网站模板</a></div>
+         <div class="copyrights"><a href="{% url "index" %}" >Ethan个人网站</a></div>
          <div class="education">
-             <h3 class="clr3">Education</h3>
+             <h3 class="clr3">校园生活</h3>
              <div class="education_details">
-                 <h4>University of Awesome<span>JANUARY 2004 - OCTOBER 2015</span></h4>
-                 <h6>MAJOR PHD</h6>
-                 <p class="cmpny1">Nulla volutpat at est sed ultricies. In ac sem consequat, posuere nulla varius, molestie lorem. Duis quis nibh leo.
-                 Curabitur a quam eu mi convallis auctor nec id mauris. Nullam mattis turpis eu turpis tincidunt, et pellentesque leo imperdiet.
-                 Vivamus malesuada, sem laoreet dictum pulvinar, orci lectus rhoncus sapien, ut consectetur augue nibh in neque. In tincidunt sed enim et tincidunt.</p>
+                 <h4>华中科技大学<span>2015.9 - 2017.7</span></h4>
+                 <h6>计算机技术</h6>
+                 <p class="cmpny1">
+                  <strong>专业平均分：87.8</strong><br> 在华科学习已经有一年了，在这收获非常多。在这里我变的开始自主，开始爱看书，看大量的课外书。在这个安静舒适的环境里，我过着我的紧张生活。我来这里的目的很明确也很简单。改变一下自己的教育背景（从学数学的变为搞计算机的），然后出去找一份可以生活的不错的工作。
+                 </p>
              </div>
              <div class="education_details">
-                 <h4>University of Techonology, Newyork <span>APRIL 2001 - SEPTEMBER 2003</span></h4>
-                 <h6>BACHELORS OF ARTS</h6>
-                 <p>Nulla volutpat at est sed ultricies. In ac sem consequat, posuere nulla varius, molestie lorem. Duis quis nibh leo.
-                 Curabitur a quam eu mi convallis auctor nec id mauris. Nullam mattis turpis eu turpis tincidunt, et pellentesque leo imperdiet.
-                 Vivamus malesuada, sem laoreet dictum pulvinar, orci lectus rhoncus sapien, ut consectetur augue nibh in neque. In tincidunt sed enim et tincidunt.</p>
+                 <h4>湖北大学<span>2010.9 - 2014.7</span></h4>
+                 <h6>数学与应用数学</h6>
+                 <p  class="cmpny1"><strong>专业平均分：85</strong><br>
+                湖北大学是我本科所在的地方，在这里度过的非常难忘的四年，疯玩，各种尝试。轮滑，日语，狂背英语单词，组织小型英语角，
+             上国标舞课程。在国标舞课上，遇上初恋，也是现任女朋友。其中最有意义的两件事情。一是收获了爱情，二是学好了英语，为learn in english打下了良好的基础</p>
              </div>
          </div>
          <div class="copywrite">
-             <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+             <p>Copyright &copy; 2016.Company name All rights reserved.<a href="{% url "index" %}" >Ethan个人网站</a></p>
          </div>
      </div>
 </div>

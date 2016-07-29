@@ -1,4 +1,5 @@
 {% extends "blog/blog_base.html" %}
+{% load blog_tags %}
 {% load staticfiles %}
 {% block page_content %}
             {% for blog in blog_list %}
@@ -11,7 +12,7 @@
                 <br/>
                 {% endif %}
 
-                <p> {{blog.snippet}}</p>
+                <p> {{blog.snippet|md1 }}</p>
                 <p class="text-right">
                     <a href="{{blog.get_absolute_url}}">
                         阅读全文

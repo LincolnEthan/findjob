@@ -47,6 +47,14 @@ class BlogListByCategoryView(ListView):
         query_condition = dict({'status': 'p', 'is_public': True})
         query_condition['category__id'] = self.kwargs['pk']
         return Blog.objects.filter(**query_condition).order_by('-publish_time')
+
+class ArchiveView(ListView):
+    template_name = "blog/archive_blog.html"
+    context_object_name = "blog_list"
+    paginate_by = settings.PAGE_SIZE*2
+
+    def get_queryset(self):
+        return Blog.objects.filter(status='p').order_by('-publish_time')
     
 class TagListView(ListView):
     template_name = 'blog/tag_list.html'
