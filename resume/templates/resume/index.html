@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block extra_head %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>付四凯A4简历</title>
+<style>
+body { width:860px; margin:0 auto; background:url({% static "images/resume_bg.png" %}) repeat; font-size:12px; font-family:"宋体";}
+* { margin:0; padding:0; list-style:none;/*列表符号*/}
+
+.bigbox { float:left; width:840px; padding:10px; background:#fff; box-shadow: rgba(204,204,204,1) 2px 2px 2px;}
+.black { float:left; width:100%; height:20px; background:rgba(51,51,51,1);}
+.header_bg { float: left; width:100%; height:160px;background:url({% static "images/resume_header_bg.jpg" %});}
+.header_bg P { font:40px/40px "Arial"; color:rgba(255,255,255,1); text-align:center; margin-top:60px;}
+.header_bg P span { font:20px/30px "黑体"; color:rgba(255,255,255,1); }
+
+.context_bg { float:left; width:840px; background:rgba(255,255,255,1); margin-top:20px; margin-bottom:20px;}
+.context_bg .dian { float:left; width:9px; margin-left:50px; margin-right:20px; margin-top:4px;position:relative;}
+.context_bg .dian .yuan_one { width:7px; height:7px; border-radius:7px; background:rgba(51,51,51,1); clear:both; position:absolute; left:0px;}
+.context_bg .dian .yuan_two { width:7px; height:7px; border-radius:7px; background:rgba(51,51,51,1); clear:both; position:absolute; left:0px; top:365px;}
+.context_bg .dian .yuan_three { width:7px; height:7px; border-radius:7px; background:rgba(51,51,51,1); clear:both; position:absolute; left:0px; top:385px;}
+.context_bg .dian .yuan_four { width:7px; height:7px; border-radius:7px; background:rgba(51,51,51,1); clear:both; position:absolute; left:0px; top:604px;}
+.context_bg .dian .yuan_five { width:7px; height:7px; border-radius:7px; background:rgba(51,51,51,1); clear:both; position:absolute; left:0px; top:748px;}
+.context_bg .dian .yuan_six { width:7px; height:7px; border-radius:7px; background:rgba(51,51,51,1); clear:both; position:absolute; left:0px; top:818px;}
+.context_bg .dian .line { float:left; width:1px; height:818px; background: rgba(204,204,204,1); margin-left:3px; clear:both; }
+
+.context_bg p { float:left; width:480px; font:12px/24px "宋体"; color:rgba(153,153,153,1); margin-right:30px;}
+.context_bg p span { float:left; font-family:"黑体"; font-size:14px; color: rgba(0,153,51,1);}
+.context_bg p strong { float:left; color: rgba(102,102,102,1);}
+
+.context_bg .left_bg { float:left; width:250px; background: rgba(204,204,204,.4);}
+.context_bg .zp { float:left; width:144px; height:185px; background: url({% static "images/resume_photo.jpg" %}) 0 -4px; margin-left:24%; margin-top:20px;} 
+.context_bg .left_bg p { float:left; font:12px/24px "宋体"; color: rgba(102,102,102,1); padding:20px;}
+
+.bottom { float:left; height:30px; width:100%; background:rgba(102,102,102,1); text-align:center;color: rgba(204,204,204,1);}
+</style> 
+{% endblock %}
+{% block content %}
+{% block navbar %}
+{{ block.super }}
+{% endblock %}
+<div class="bigbox">
+    <!---——简历顶部----->
+    <div class="header_bg">
+      <div class="black"></div>
+      <P>FUYIKAI</br><span>付四凯&nbsp;&nbsp;个人简历</span></P>
+    </div>
+    <!------内容------->
+    <div class="context_bg">
+
+      <!-----左边----->
+      <div class="dian">
+        <div class="yuan_one"></div>
+        <div class="line"></div>
+        <div class="yuan_two"></div>
+        <div class="yuan_three"></div>
+        <div class="yuan_four"></div>
+        <div class="yuan_five"></div>
+        <div class="yuan_six"></div>
+      </div>
+      <!------内容文本------>
+      <P><span>教育背景EXPERIENCE</span></br>
+<strong>华中科技大学2015.9 - 2017.7</strong></br>
+<strong>计算机技术专业平均分：87.8</strong></br>
+在华科学习已经有一年了，在这收获非常多。在这里我变的开始自主，开始爱看书，看大量的课外书。在这个安静舒适的环境里，我过着我的紧张生活。我来这里的目的很明确也很简单。改变一下自己的教育背景（从学数学的变为搞计算机的），然后出去找一份可以生活的不错的工作。</br>
+</br><strong>湖北大学2010.9 - 2014.7</strong></br>
+<strong>数学与应用数学专业平均分：85</strong></br>
+湖北大学是我本科所在地方，在这里度过的非常难忘的四年，疯玩，各种尝试。轮滑，日语，狂背英语单词，组织小型英语角，上国标舞课程。在国标舞课上，遇上初恋，也是现任女朋友。其中最有意义的两件事情。一是收获了爱情，二是学好了英语，为learn in english打下了良好的基础。</br>
+</br>
+<span>项目经历EXPERIENCE</span></br>
+<strong>WiFi定位项目</strong></br>
+<strong>项目描述：</strong>项目描述：2015年3月14日，公安部网安局向全国公安机关网安部门下发了《关于组织开展公共场所无线上网安全管控系统建设的通知（[2015]1051号）》。这个项目是和咸宁市公安局合作的一个关于wifi公共信息采集的用来管控公共场所上网安全的项目。项目主要是手机发出的wifi信息。然后根据wifi包中包含的信息,如mac地址信息，QQ账号，微博账号等一些信息。 最终实现终端移动轨迹刻画、特征信息可溯源。</br>
+<strong>技术难点：</strong>数据量大，查询慢。</br>
+<strong>解决方法：</strong>将数据进行分表，采用日志性数据的处理办法，冗余数据，加快数据查询。</br>
+<strong>个人参与：</strong>将数据进行分表，采用日志性数据的处理办法，冗余数据，加快数据查询。
+个人参与：将回传的数据进行过滤压缩，统计然后写回数据库，使用到Celery（消息队列）的技术让多台服务器对数据进行处理，实现均衡负载，实际中使用了2台服务器。
+</br>
+</br>
+<strong>病人信息查询系统</strong></br>
+<strong>系统用途：</strong>方便医生写论文，查询信息使用</br>
+<strong>项目描述：</strong>这是和天门市第一人民医院合作的一个项目。系统将医院提供的pdf文档，按照一定的规则提取出来，然后进行分类，写入数据库。方便查询。</br>
+<strong>个人参与：</strong>负责写一些展示界面，使用django技术。</br>
+</br>
+<span>专业技能</span></br>
+用flask入门，然后转向django，在实践过程中，会去熟悉一些web方面的知识。比如说去了http,html, css, js, celery, bootstrap和大量的django第三方app. 在帮老师进行的项目中，使用到过Celery。</br>
+</P>   
+      <!------右边------>
+      <div class="left_bg">
+        <div class="zp"></div>
+        <p>
+<span>付四凯</span></br>华中科技大学究生</br>计算机技术&nbsp;硕士研究生</br>
+</br>
+<span>求职意向</span></br>web后端工程师</br>
+</br>
+<span>英语</span></br>
+词汇量：10000</br>
+雅&nbsp;&nbsp;思：6.0(口语6.5 阅读7.0)</br>
+英语六级</br>
+</br>
+<span>联系我CONTACT ME</span></br>
++86 130 0716 8671</br>
+4453664646@qq.com</br>
+武汉市洪山区华中科技大学</br>
+</br>
+<span>语言</span></br>
+熟悉Python</br> 
+了解HTML\CSS\Javascript</br>
+了解C</br>
+了解java</br>
+</br>
+<span>Python</span></br>
+掌握程度：熟练</br>
+熟悉Django,Flask Web框架</br>
+熟悉Celery</br>
+熟悉Python标准库</br>
+具有一定的项目能力</br>
+</p>
+      </div>
+    
+    </div>
+
+      <div class="bottom">Copyright © 2016.Company name All rights reserved.Ethan个人网站</div>
+    
+  </div>
+{% endblock%}

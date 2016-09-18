@@ -52,12 +52,7 @@
 {% endblock %}<!--/contentendblock-->
  {% block navbar_right %}
   <ul class="nav navbar-nav navbar-right">
-     <form class="navbar-form navbar-right" role="form">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="python" id="search-text">
-                </div>
-                <button type="button" class="btn btn-default" id="btn-search">搜索</button>
-    </form>
+   
     <li><a href="{% url "blog:tag_list" %}">标签</a></li>
     <li><a href="{% url "blog:archives"%}">归档</a></li>
 </ul>

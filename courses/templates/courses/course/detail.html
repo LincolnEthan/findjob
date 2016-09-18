@@ -2,9 +2,9 @@
 
 {% block title %}
    {% if subject %}
-        {{ subject.title }} courses
+        {{ subject.title }} 课程
     {% else %}
-        All courses
+        所有课程
     {% endif %}
 {% endblock %}
 
@@ -14,13 +14,13 @@
             {{ object.title }}：{{ module.title }}
         </h1>
     <div class="contents">
-        <h3>Modules</h3>
+        <h3>章节</h3>
         <ul id="modules">
         {% for m in object.modules.all %}
             <li data-id="{{ m.id }}" {% if m == module %}class="selected"{% endif %}>
                 <a href="{% url "courses:course_detail1" object.id m.id %}">
                     <span>
-                        Module <span class="order">{{ m.order|add:1 }}</span>
+                        第<span class="order">{{ m.order|add:1 }}</span>节
                     </span>
                     <br>
                     {{ m.title }}
